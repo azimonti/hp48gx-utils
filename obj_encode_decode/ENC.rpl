@@ -1,0 +1,75 @@
+*******************************
+*     STRING ENCODING         *
+*******************************
+::  CK1  :: CK&DISPATCH0
+* real
+      ONE    :: DUP DO>STR   ONE   ;
+* complex
+      TWO    :: DUP DO>STR   TWO   ;
+* string
+      THREE  :: DUP          THREE ;
+* global name
+      SIX    :: DUP DO>STR  SIX    ;
+* secondary
+      EIGHT  :: DUP DO>STR  EIGHT  ;
+;
+
+ZERO                       ( FOR VARIABLE CHKS )
+* init the local variables
+{ LAM OTYPE LAM  CHKS  }
+BIND
+DUP
+* compute the lenght of the string to encode
+DUPLEN$
+* iterate to encode each character
+ZERO DO
+  DUP
+* extract the character
+  CAR$
+* convert it to bint
+  CHR>#
+* add the bint to the checksum
+  DUP
+  LAM CHKS
+  #+
+  ' LAM CHKS
+  STO
+* add 100 to ensure the encoding for each character
+* is exactly 3 characters long
+  ONEHUNDRED #+
+* convert the three digits to string
+* and append it to the string being parsed
+  #>$
+  !append$
+* remove first character and process the
+* remaining of the string
+  ONE
+  #1+LAST$
+  LOOP
+* create the encoded string starting with ENC
+"ENC"
+* append the type
+LAM OTYPE
+#>$
+!append$
+"T"
+!append$
+* compute a basic checksum on 16 bits
+* using the modulus with 65535
+LAM CHKS
+65535
+#/
+* the quotient is not needed
+DROP
+* add 10000 to ensure the encoding of the checksum
+* is exactly 5 characters long
+10000 #+
+#>$
+"S"
+!append$ !append$SWAP
+* append the encoded string to the initial part which will
+* be used for decoding
+!append$
+SWAPDROP
+ABND
+;
