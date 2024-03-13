@@ -1,0 +1,74 @@
+*******************************
+*     STRING DECODING         *
+*******************************
+::
+* ensure there is an argument and it is a string
+0LASTOWDOB! CK1NOLASTWD
+::  CK1  :: CK&DISPATCH0
+* string
+      THREE ;
+;
+
+ZERO ( for variable OTYPE )
+ZERO ( for variable CHKS  )
+* init the local variables
+{ LAM OTYPE LAM  CHKS }
+BIND
+* check is a valid string
+DUPLEN$ THREE #<
+IT :: "Invalid String" DO$EXIT ;
+DUP FOUR
+1_#1-SUB$
+"ENC" EQUALNOT
+IT :: "Invalid String " DO$EXIT ;
+* get the type
+DUP THREE
+ #1+LAST$
+DUP ZERO ONE SUB$
+DOSTR>  ( convert to number      )
+COERCE  ( convert number to bint )
+* store the type
+' LAM OTYPE
+  STO
+* extract the checksum
+TWO   #1+LAST$
+DUP ONE FIVE SUB$
+DOSTR>   ( convert string to real          )
+COERCE   ( convert real to bint            )
+10000 #- ( remove to get the real checksum )
+* Store the initial checksum
+' LAM CHKS
+  STO
+* extract the string to decode
+SIX   #1+LAST$
+DUPLEN$
+* one encoded char take three digits
+THREE #/
+* check the integer reminder
+SWAP
+ZERO EQUALNOT
+IT :: DROP DROP "Invalid length" DO$EXIT ;
+ZERO
+DO
+  DUP ONE THREE SUB$
+  DOSTR>  ( convert string to real              )
+  COERCE  ( convert real to bint                )
+  100 #-  ( remove to get the character encoded )
+  DUP
+* subtract the current bint from the checksum
+  LAM CHKS SWAP #-
+  ' LAM CHKS
+  STO
+* append the decoded string at the end
+  #>CHR CHR>$ !append$
+* remove the character from the string
+  THREE #1+LAST$
+LOOP
+* if the type is not a string convert it
+LAM OTYPE THREE EQUALNOT
+IT :: DOSTR> (  Convert string to object )
+* verify the checksum is correct
+LAM CHKS ZERO EQUALNOT
+IT :: "Invalid Checksum" DO$EXIT ;
+ABND
+;

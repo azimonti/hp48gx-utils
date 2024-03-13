@@ -1,6 +1,8 @@
 *******************************
 *     STRING ENCODING         *
 *******************************
+* ensure there is an argument and it is a real,
+* complex, string, global name or secondary
 ::  CK1  :: CK&DISPATCH0
 * real
       ONE    :: DUP DO>STR   ONE   ;
@@ -19,7 +21,7 @@ ZERO                       ( FOR VARIABLE CHKS )
 { LAM OTYPE LAM  CHKS  }
 BIND
 DUP
-* compute the lenght of the string to encode
+* compute the length of the string to encode
 DUPLEN$
 * iterate to encode each character
 ZERO DO
