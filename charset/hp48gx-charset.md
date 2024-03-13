@@ -14,38 +14,38 @@ This character set is crucial for understanding the communication and programmin
 
 | Hex | Dec | Chr | I/O  | Description                                |
 |:---:|:---:|:---:|:----:|:-------------------------------------------|
-| 00  | 00  | \\0 |      | Null Char                                  |
-| 01  | 01  | ^A  |      | Char A                                     |
-| 02  | 02  | ^B  |      | Char B                                     |
-| 03  | 03  | ^C  |      | Char C                                     |
-| 04  | 04  | ^D  |      | Char D                                     |
-| 05  | 05  | ^E  |      | Char E                                     |
-| 06  | 06  | ^F  |      | Char F                                     |
-| 07  | 07  | ^G  |      | Char G                                     |
-| 08  | 08  | ^H  |      | Char H                                     |
-| 09  | 09  | ^I  |      | Char I                                     |
-| 0A  | 10  | ^J  |      | Char J                                     |
-| 0B  | 11  | ^K  |      | Char K                                     |
-| 0C  | 12  | ^L  |      | Char L                                     |
-| 0D  | 13  | ^M  |      | Char M                                     |
-| 0E  | 14  | ^N  |      | Char N                                     |
-| 0F  | 15  | ^O  |      | Char O                                     |
-| 10  | 16  | ^P  |      | Char P                                     |
-| 11  | 17  | ^Q  |      | Char Q                                     |
-| 12  | 18  | ^R  |      | Char R                                     |
-| 13  | 19  | ^S  |      | Char S                                     |
-| 14  | 20  | ^T  |      | Char T                                     |
-| 15  | 21  | ^U  |      | Char U                                     |
-| 16  | 22  | ^V  |      | Char V                                     |
-| 17  | 23  | ^W  |      | Char W                                     |
-| 18  | 24  | ^X  |      | Char X                                     |
-| 19  | 25  | ^Y  |      | Char Y                                     |
-| 1A  | 26  | ^Z  |      | Char Z                                     |
-| 19  | 27  | ^[  |      | Char left bracket                          |
-| 19  | 28  | ^\\ |      | Char Backslash                             |
-| 19  | 29  | ^]  |      | Char right bracket                         |
-| 19  | 30  | ^^  |      | Char circumflex accent                     |
-| 19  | 31  | …   |      | Horizontal Ellipse                         |
+| 00  | 00  | \0  |      | Null Char                                  |
+| 01  | 01  | ^A  |      | Start of Heading                           |
+| 02  | 02  | ^B  |      | Start of Text                              |
+| 03  | 03  | ^C  |      | End of Text                                |
+| 04  | 04  | ^D  |      | End of Transmission                        |
+| 05  | 05  | ^E  |      | Enquiry                                    |
+| 06  | 06  | ^F  |      | Acknowledge                                |
+| 07  | 07  | ^G  |      | Bell                                       |
+| 08  | 08  | ^H  |      | Backspace                                  |
+| 09  | 09  | ^I  |      | Horizontal Tab                             |
+| 0A  | 10  | ^J  |      | Line Feed                                  |
+| 0B  | 11  | ^K  |      | Vertical Tab                               |
+| 0C  | 12  | ^L  |      | Form Feed                                  |
+| 0D  | 13  | ^M  |      | Carriage Return                            |
+| 0E  | 14  | ^N  |      | Shift Out                                  |
+| 0F  | 15  | ^O  |      | Shift In                                   |
+| 10  | 16  | ^P  |      | Data Link Escape                           |
+| 11  | 17  | ^Q  |      | Device Control 1                           |
+| 12  | 18  | ^R  |      | Device Control 2                           |
+| 13  | 19  | ^S  |      | Device Control 3                           |
+| 14  | 20  | ^T  |      | Device Control 4                           |
+| 15  | 21  | ^U  |      | Negative Acknowledge                       |
+| 16  | 22  | ^V  |      | Synchronous Idle                           |
+| 17  | 23  | ^W  |      | End of Trans. Block                        |
+| 18  | 24  | ^X  |      | Cancel                                     |
+| 19  | 25  | ^Y  |      | End of Medium                              |
+| 1A  | 26  | ^Z  |      | Substitute                                 |
+| 1B  | 27  | ^[  |      | Escape                                     |
+| 1C  | 28  | ^\  |      | File Separator                             |
+| 1D  | 29  | ^]  |      | Group Separator                            |
+| 1E  | 30  | ^^  |      | Record Separator                           |
+| 1F  | 31  | ^_  |      | Unit Separator                             |
 | 20  | 32  |     |      | Space                                      |
 | 21  | 33  | !   | !    | Exclamation mark                           |
 | 22  | 34  | "   | "    | Quotation mark                             |
