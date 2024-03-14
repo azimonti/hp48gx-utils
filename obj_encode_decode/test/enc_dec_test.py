@@ -30,6 +30,13 @@ class decode_test(unittest.TestCase):
         EXPECTED = "This is\n a test"
         self.assertEqual(COMPUTED, EXPECTED)
 
+    def test_03(self):
+        COMPUTED = decode("test_dec_3_in.g48", True)
+        print(COMPUTED)
+        with open("test_dec_3_res.g48", "r") as file:
+            EXPECTED = file.read().rstrip('\n')
+        self.assertEqual(COMPUTED, EXPECTED)
+
 
 class encode_test(unittest.TestCase):
     def test_01(self):
