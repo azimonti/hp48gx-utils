@@ -1,0 +1,19 @@
+%%HP: T(3)A(D)F(.);
+::
+* Initial value
+2.5
+* Put the subroutine on the stack
+' :: LAM x LAM x %*  ;
+* Define temporary variables
+{  LAM x  LAM SQUARE  }
+* Initialize temporary variables
+BIND
+::
+"Direct"
+LAM x LAM x %*
+"Subroutine"
+LAM SQUARE EVAL
+;
+* memory cleanup
+ABND
+;
