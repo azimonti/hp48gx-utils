@@ -14,7 +14,7 @@ import unittest
 base_path = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(base_path))
 
-from enc_dec_mod import decode, encode  # noqa: E402
+from mod_enc_dec import decode, encode  # noqa: E402
 
 
 class decode_test(unittest.TestCase):
@@ -32,7 +32,6 @@ class decode_test(unittest.TestCase):
 
     def test_03(self):
         COMPUTED = decode("test_dec_3_in.g48", True)
-        print(COMPUTED)
         with open("test_dec_3_res.g48", "r") as file:
             EXPECTED = file.read().rstrip('\n')
         self.assertEqual(COMPUTED, EXPECTED)
@@ -70,6 +69,11 @@ class encode_test(unittest.TestCase):
     def test_04(self):
         COMPUTED = encode("This is\n a test")
         EXPECTED = "ENC3T11279S184204205215132205215110132197132216201215216"
+        self.assertEqual(COMPUTED, EXPECTED)
+
+    def test_05(self):
+        COMPUTED = encode("(1,2)", enc_type=2)
+        EXPECTED = "ENC2T10224S140149144150141"
         self.assertEqual(COMPUTED, EXPECTED)
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 /************************/
-/*    enc_dec_mod.py    */
+/*    mod_enc_dec.py    */
 /*     Version 1.0      */
 /*     2024/03/14       */
 /************************/
@@ -25,7 +25,7 @@ def load_charmap():
     )
 
 
-def decode(string: str, isFile: bool = False):
+def decode(string: str, isFile: bool = False) -> str:
     if isFile:
         with open(string, 'r') as file:
             string = file.read()
@@ -85,7 +85,7 @@ def decode(string: str, isFile: bool = False):
     return (decoded_string)
 
 
-def encode(string: str, isFile: bool = False):
+def encode(string: str, isFile: bool = False, enc_type: int = 3) -> str:
     if isFile:
         with open(string, 'r') as file:
             string = file.read()
@@ -132,7 +132,8 @@ def encode(string: str, isFile: bool = False):
         encoded_value = char_value + 100
         encoded_string += f"{encoded_value}"
 
-    encoded_string = "ENC3T" + str(checksum) + "S" + encoded_string
+    encoded_string = "ENC"+ str(enc_type) + "T" + str(checksum) + "S" +\
+        encoded_string
     return encoded_string
 
 
