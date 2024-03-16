@@ -36,6 +36,19 @@ class decode_test(unittest.TestCase):
             EXPECTED = file.read().rstrip('\n')
         self.assertEqual(COMPUTED, EXPECTED)
 
+    def test_04(self):
+        INPUT = "ENC2T10224S140149144150141"
+        COMPUTED = decode(INPUT)
+        EXPECTED = "(1,2)"
+        self.assertEqual(COMPUTED, EXPECTED)
+
+    def test_05(self):
+        INPUT = "ENC4T11685S19119113214014814414814113214014814414514914"\
+            "1132193110191132140148144149141132140148144148141132193193"
+        COMPUTED = decode(INPUT)
+        EXPECTED = "[[ (0,0) (0,-1) ]\n[ (0,1) (0,0) ]]"
+        self.assertEqual(COMPUTED, EXPECTED)
+
 
 class encode_test(unittest.TestCase):
     def test_01(self):
@@ -74,6 +87,12 @@ class encode_test(unittest.TestCase):
     def test_05(self):
         COMPUTED = encode("(1,2)", enc_type=2)
         EXPECTED = "ENC2T10224S140149144150141"
+        self.assertEqual(COMPUTED, EXPECTED)
+
+    def test_06(self):
+        COMPUTED = encode("[[ (0,0) (0,-1) ]\n[ (0,1) (0,0) ]]", enc_type=4)
+        EXPECTED = "ENC4T11685S19119113214014814414814113214014814414514914"\
+            "1132193110191132140148144149141132140148144148141132193193"
         self.assertEqual(COMPUTED, EXPECTED)
 
 

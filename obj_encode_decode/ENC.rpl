@@ -10,6 +10,8 @@
       TWO    :: DUP DO>STR   TWO   ;
 * string
       THREE  :: DUP          THREE ;
+* vector / matrices
+      FOUR  :: DUP  DO>STR   FOUR  ;
 * global name
       SIX    :: DUP DO>STR  SIX    ;
 * secondary
