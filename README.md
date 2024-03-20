@@ -8,7 +8,7 @@ To get started with HP48 GX utilities, clone this repository to your local machi
 
 ```bash
 git clone https://github.com/azimonti/hp48gx-utils.git
-cd hexo-toolkit
+cd hp48gx-utils
 ```
 
 ## Usage
