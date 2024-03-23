@@ -111,9 +111,7 @@ def encode(string: str, isFile: bool = False, enc_type: int = 3) -> str:
                 # look ahead for the end of the sequence
                 sequence += string[i]
                 i += 1
-                # case like "\<<T" are NOT handled, spaces are needed
-                while i < len(string) and string[i] \
-                        not in [" ", "\n", "\t", "\r", "\\"]:
+                while i < len(string) and sequence not in charmap_dict:
                     sequence += string[i]
                     i += 1
         else:
