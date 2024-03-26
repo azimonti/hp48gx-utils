@@ -1,0 +1,24 @@
+%%HP: T(3)A(R)F(.);
+
+\<< DUP2 \-> N R
+  \<<
+    DROP ""
+    @ Check if already in SCI / ENG format or STD
+    IF N \->STR "E" POS
+    THEN
+      @ SCI / ENG format
+      @ Extract the mantissa and round it
+      N MANT R TRNC
+    ELSE
+      @ STD format
+      @ Extract the decimal part
+      N N 0 TRNC -
+      @ Round it - ensuring cases like N.000NN are handled
+      DUP XPON SWAP MANT R 1 - RND SWAP 10 SWAP ^ * N 0 TRNC + MANT
+    END
+    @ Concatenate as string
+    + "E" + N XPON +
+    @ Convert the string back to number
+    DUP OBJ\->
+  \>>
+\>>
